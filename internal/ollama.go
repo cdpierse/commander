@@ -12,7 +12,7 @@ func GetCommandSuggestion(ctx context.Context, request *api.ChatRequest) (*api.C
 	// Create a client from environment settings
 	client, err := api.ClientFromEnvironment()
 	if err != nil {
-		return nil, fmt.Errorf("failed to create client: %w", err)
+		return nil, fmt.Errorf("Failed to create client: %w", err)
 	}
 
 	// Define a function to handle the response from the chat API

@@ -3,8 +3,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"strings"
-	"time"
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
@@ -20,9 +18,9 @@ var rootCmd = &cobra.Command{
 	Short: "commander is a CLI for getting command line copilot suggestions",
 	Long:  "commander is a CLI for getting command line copilot suggestions.",
 	Run: func(cmd *cobra.Command, args []string) {
-		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-		defer cancel()
 		config := NewConfig()
+		ctx, cancel := context.WithTimeout(context.Background(), config.defaultTimeout)
+		defer cancel()
 		request := &api.ChatRequest{
 			Model: config.model,
 			Messages: []api.Message{
@@ -47,12 +45,9 @@ var rootCmd = &cobra.Command{
 			fmt.Println(err)
 			return
 		}
-		// Replace backticks with single quotes
-		output := strings.ReplaceAll(response.Message.Content, "`", "")
 		green := color.New(color.FgGreen).SprintFunc()
 		blue := color.New(color.FgBlue).SprintFunc()
-		fmt.Printf("%s: %s\n", blue("CMD"), green(output))
-		// fmt.Printf("CMD: %s\n", green(output))
+		fmt.Printf("%s: %s\n", blue("CMD"), green(response.Message.Content))
 	},
 }
 
