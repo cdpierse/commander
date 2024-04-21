@@ -1,8 +1,10 @@
 # Commander
 
+![Commander Cli](https://github.com/cdpierse/commander/assets/commander-example.gif?raw=true)
+
 Commander is a simple CLI designed to provide copilot suggestions for command-line operations. It streamlines the process of generating command suggestions in your terminal based on the query you provide.
 
-Commander is built on top of [Ollama](https://ollama.com) and is designed to run all queries locally not requiring any external API calls.
+Commander is built to use [Ollama](https://ollama.com) and is designed to run all queries locally not requiring any external API calls.
 
 The only model currently supported is Llama3 due to its higher performance with code completion tasks.
 
