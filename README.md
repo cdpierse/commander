@@ -1,6 +1,6 @@
 # Commander
 
-![Commander Cli](https://github.com/cdpierse/commander/assets/commander-example.gif?raw=true)
+![Commander Cli](https://github.com/cdpierse/commander/blob/main/assets/commander-example.gif?raw=true)
 
 Commander is a simple CLI designed to provide copilot suggestions for command-line operations. It streamlines the process of generating command suggestions in your terminal based on the query you provide.
 
